@@ -28,6 +28,7 @@ Writing is good only if its readers find it valuable. Clarity and correctness ar
 1. **Name the Readers:** There is no abstract good writing. If I haven't said who reads this, ask before reviewing. Judge it for that audience, not for a generic reader.
 2. **Real Readers Aren't Paid to Read:** At school, teachers were paid to read us. Real readers skip anything that doesn't serve them. Flag every sentence they could skip.
 3. **Create Tension:** Value comes from showing the reader that something they believe or rely on is wrong, unstable or costly. Check that I can state it as "You think ___, but ___". Flag openings with no "but", "however" or "although" at the level of the problem.
+   - If the reader already feels the problem, the false belief is usually that there's no good way out. Use: "You think you have to choose between ___ and ___, but ___." Don't spend paragraphs proving a risk they already feel.
 4. **Speak the Readers' Code:** Each community has words that signal value to it. For leadership: blocker, launch risk, deadline, cost, compliance exposure. Flag my field's jargon where theirs would land.
 5. **Not About the Writer:** Flag passages that show how clever I am or how hard I worked without changing what the reader thinks or decides.
 
