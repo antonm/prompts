@@ -1,0 +1,27 @@
+name: Swiss Price Watcher
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Restore watcher state
+        uses: actions/cache@v4
+        with:
+          path: price-watcher/state.json
+          key: price-watcher-state-${{ github.run_id }}
+          restore-keys: |
+            price-watcher-state-
+
+      - name: Run Swiss price watcher
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: |
+          python3 price-watcher/watcher.py --config price-watcher/config.json --verbose

@@ -1,0 +1,4 @@
+price-watcher/state.json
+price-watcher/logs/
+__pycache__/
+*.pyc

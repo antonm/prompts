@@ -1,0 +1,36 @@
+{
+  "x-order" : [
+    "relevant",
+    "brand_new",
+    "price_chf",
+    "meets_target",
+    "summary"
+  ],
+  "required" : [
+    "relevant",
+    "brand_new",
+    "price_chf",
+    "meets_target",
+    "summary"
+  ],
+  "additionalProperties" : false,
+  "title" : "DealTriage",
+  "type" : "object",
+  "properties" : {
+    "relevant" : {
+      "type" : "boolean"
+    },
+    "price_chf" : {
+      "type" : "integer"
+    },
+    "summary" : {
+      "type" : "string"
+    },
+    "meets_target" : {
+      "type" : "boolean"
+    },
+    "brand_new" : {
+      "type" : "boolean"
+    }
+  }
+}
