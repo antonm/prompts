@@ -16,7 +16,5 @@ python3 price-watcher/watcher.py --dry-run
 NTFY_TOPIC="your-private-topic" python3 price-watcher/watcher.py --test-notify
 ```
 
-## Offline Anki Card Helper (macOS `fm` CLI)
-```bash
-price-watcher/fm_anki.sh "der Schneematsch" >> cards.tsv
-```
+## Offline Anki Card Helper
+Moved to its own dedicated repository: https://github.com/antonm/anki

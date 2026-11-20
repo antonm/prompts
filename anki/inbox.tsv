@@ -1,9 +1,0 @@
-# Format (tab-separated): front	back	[tags]	[deck]
-# - 2 cols: front, back (default deck: Anki-Inbox)
-# - 3 cols: front, back, space-separated tags (matches price-watcher/fm_anki.sh)
-# - 4 cols: front, back, space-separated tags, deck name (e.g. German::Vocabulary)
-# - Stable note GUIDs are derived from normalized `front`; appending a revised row
-#   with the same `front` updates the card in place on re-import.
-front	back	tags	deck
-der Schneematsch	slush (melting wet snow on roads/sidewalks)<br><i>Pass auf, der Schneematsch auf dem Gehweg ist rutschig.</i>	german noun winter	Anki-Inbox::German
-etwas auf dem Schirm haben	to have something on one's radar / keep track of something<br><i>Ich habe den Termin nächste Woche auf dem Schirm.</i>	german idiom	Anki-Inbox::German

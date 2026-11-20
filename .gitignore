@@ -1,7 +1,4 @@
 price-watcher/state.json
 price-watcher/logs/
-dist/
-*.apkg
 __pycache__/
 *.pyc
-
