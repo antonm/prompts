@@ -16,33 +16,6 @@
   },
   "products": [
     {
-      "id": "patagonia-tres-black-m-transa",
-      "name": "Patagonia Tres 3-in-1 Parka (Black, Size M) — Transa",
-      "url": "https://www.transa.ch/en/p/patagonia-ms-tres-3-in-1-parka-310923-003/",
-      "parser": "jsonld",
-      "target_chf": 560,
-      "require_in_stock": true,
-      "enabled": true
-    },
-    {
-      "id": "arcteryx-therme-black-m-transa",
-      "name": "Arc'teryx Therme Down Parka (Black, Size M) — Transa",
-      "url": "https://www.transa.ch/en/p/arcteryx-therme-down-parka-m-333598-003/",
-      "parser": "jsonld",
-      "target_chf": 720,
-      "require_in_stock": true,
-      "enabled": true
-    },
-    {
-      "id": "arcteryx-therme-darkjade-m-transa",
-      "name": "Arc'teryx Therme Down Parka (Dark Jade, Size M) — Transa",
-      "url": "https://www.transa.ch/en/p/arcteryx-therme-down-parka-m-333598-015/",
-      "parser": "jsonld",
-      "target_chf": 720,
-      "require_in_stock": true,
-      "enabled": true
-    },
-    {
       "id": "mac-mini-2026-m6-256gb-heiniger",
       "name": "Mac mini 2026 M6 16GB/256GB (MHQK4ZD/A) — HeinigerAG",
       "url": "https://shop.heinigerag.ch/de/products/364188-mhqk4zda-apple-mac-mini-apple-m6-chip-with-12-core-cpu",
@@ -119,33 +92,6 @@
       "must_include": ["airpods pro"],
       "include_any": ["pro 3", "pro (3", "pro 2", "pro (2", "2. generation", "3. generation", "in-ear", "anc", "usb-c", "magsafe"],
       "exclude": ["pro 1", "1. generation", "schutzhülle", "silikonhülle", "ohrstöpsel", "ear tips", "ersatz", "nur ladecase", "ladegerät", "reinigung", "airpods max", "retoure", "rückgabe", "gebraucht", "open box", "b-ware", "refurbished"]
-    },
-    {
-      "id": "patagonia-tres-deal",
-      "name": "Patagonia Tres 3-in-1 (<= CHF 560)",
-      "max_price_chf": 560,
-      "fm_criteria": "Men's Patagonia Tres 3-in-1 Parka in dark/neutral colors (black, navy, dark green), Size M if mentioned, <= CHF 560.",
-      "must_include": ["patagonia", "tres"],
-      "include_any": [],
-      "exclude": ["damen", "women", "kinder", "kids"]
-    },
-    {
-      "id": "arcteryx-therme-deal",
-      "name": "Arc'teryx Therme Parka (<= CHF 720)",
-      "max_price_chf": 720,
-      "fm_criteria": "Men's Arc'teryx Therme Down Parka in dark/neutral colors (black, dark jade, forage, navy), Size M if mentioned, <= CHF 720.",
-      "must_include": ["therme"],
-      "include_any": ["arc'teryx", "arcteryx"],
-      "exclude": ["damen", "women"]
-    },
-    {
-      "id": "fjallraven-nuuk-deal",
-      "name": "Fjällräven Nuuk Parka (<= CHF 370)",
-      "max_price_chf": 370,
-      "fm_criteria": "Men's Fjällräven Nuuk Parka (not Lite, not women's) in dark/neutral colors, <= CHF 370.",
-      "must_include": ["nuuk"],
-      "include_any": ["fjällräven", "fjallraven", "fjaellraeven"],
-      "exclude": ["damen", "women", "lite"]
     }
   ]
 }
