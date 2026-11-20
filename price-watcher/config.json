@@ -25,15 +25,6 @@
       "enabled": true
     },
     {
-      "id": "patagonia-tres-navy-m-transa",
-      "name": "Patagonia Tres 3-in-1 Parka (New Navy, Size M) — Transa",
-      "url": "https://www.transa.ch/en/p/patagonia-ms-tres-3-in-1-parka-310923-014/",
-      "parser": "jsonld",
-      "target_chf": 560,
-      "require_in_stock": true,
-      "enabled": true
-    },
-    {
       "id": "arcteryx-therme-black-m-transa",
       "name": "Arc'teryx Therme Down Parka (Black, Size M) — Transa",
       "url": "https://www.transa.ch/en/p/arcteryx-therme-down-parka-m-333598-003/",
@@ -105,6 +96,7 @@
     {
       "id": "mac-mini-2026-deal",
       "name": "Mac mini 2026 (256/512 GB, New)",
+      "max_price_chf": 1099,
       "fm_criteria": "Brand-new Apple Mac mini (Late 2026, M6 chip) with 256 GB SSD <= CHF 750 or 512 GB SSD <= CHF 930 (16 GB RAM) / <= CHF 1099 (24 GB RAM). Exclude accessories, docks, old M1/M2/M4 models, and returns.",
       "must_include": ["mac mini"],
       "include_any": ["m6", "2026", "mhqk4", "mhql4", "mhqm4"],
@@ -113,6 +105,7 @@
     {
       "id": "surface-pro-deal",
       "name": "Microsoft Surface Pro (<= CHF 850/950, New)",
+      "max_price_chf": 950,
       "fm_criteria": "Brand-new Microsoft Surface Pro tablet (Pro 11, 12-inch, or 12th Edition 2026), <= CHF 850 for 256 GB or <= CHF 950 for 512 GB / OLED. Exclude old Pro 7/8/9, Surface Laptop/Go, standalone accessories, and returns.",
       "must_include": ["surface pro"],
       "include_any": ["11", "12. edition", "12th", "12 zoll", "13 zoll", "snapdragon", "x2", "x plus", "x elite", "core ultra", "copilot", "oled", "256 gb", "512 gb", "16 gb"],
@@ -121,22 +114,25 @@
     {
       "id": "airpods-pro-deal",
       "name": "Apple AirPods Pro 3 / Pro 2 (<= CHF 165, New)",
+      "max_price_chf": 165,
       "fm_criteria": "Brand-new Apple AirPods Pro 3 or AirPods Pro 2 (in-ear with ANC) <= CHF 165. Exclude open-fit AirPods 4/5, AirPods Max, standalone cases/tips, and used/refurbished units.",
       "must_include": ["airpods pro"],
       "include_any": ["pro 3", "pro (3", "pro 2", "pro (2", "2. generation", "3. generation", "in-ear", "anc", "usb-c", "magsafe"],
-      "exclude": ["schutzhülle", "silikonhülle", "ohrstöpsel", "ear tips", "ersatz", "nur ladecase", "ladegerät", "reinigung", "airpods max", "retoure", "rückgabe", "gebraucht", "open box", "b-ware", "refurbished"]
+      "exclude": ["pro 1", "1. generation", "schutzhülle", "silikonhülle", "ohrstöpsel", "ear tips", "ersatz", "nur ladecase", "ladegerät", "reinigung", "airpods max", "retoure", "rückgabe", "gebraucht", "open box", "b-ware", "refurbished"]
     },
     {
       "id": "patagonia-tres-deal",
       "name": "Patagonia Tres 3-in-1 (<= CHF 560)",
+      "max_price_chf": 560,
       "fm_criteria": "Men's Patagonia Tres 3-in-1 Parka in dark/neutral colors (black, navy, dark green), Size M if mentioned, <= CHF 560.",
-      "must_include": ["patagonia"],
-      "include_any": ["tres", "3-in-1", "parka"],
+      "must_include": ["patagonia", "tres"],
+      "include_any": [],
       "exclude": ["damen", "women", "kinder", "kids"]
     },
     {
       "id": "arcteryx-therme-deal",
       "name": "Arc'teryx Therme Parka (<= CHF 720)",
+      "max_price_chf": 720,
       "fm_criteria": "Men's Arc'teryx Therme Down Parka in dark/neutral colors (black, dark jade, forage, navy), Size M if mentioned, <= CHF 720.",
       "must_include": ["therme"],
       "include_any": ["arc'teryx", "arcteryx"],
@@ -145,6 +141,7 @@
     {
       "id": "fjallraven-nuuk-deal",
       "name": "Fjällräven Nuuk Parka (<= CHF 370)",
+      "max_price_chf": 370,
       "fm_criteria": "Men's Fjällräven Nuuk Parka (not Lite, not women's) in dark/neutral colors, <= CHF 370.",
       "must_include": ["nuuk"],
       "include_any": ["fjällräven", "fjallraven", "fjaellraeven"],

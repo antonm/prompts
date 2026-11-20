@@ -128,7 +128,13 @@ def parse_jsonld_product(body: str) -> Optional[Dict[str, Any]]:
             data = json.loads(raw)
         except json.JSONDecodeError:
             continue
-        items = data if isinstance(data, list) else [data]
+        raw_items = data if isinstance(data, list) else [data]
+        items: List[Any] = []
+        for entry in raw_items:
+            if isinstance(entry, dict) and isinstance(entry.get("@graph"), list):
+                items.extend(entry["@graph"])
+            else:
+                items.append(entry)
         for item in items:
             if not isinstance(item, dict):
                 continue
@@ -268,7 +274,7 @@ def notify_all(
     click_url: Optional[str] = None,
 ) -> None:
     notif_cfg = config.get("notifications", {})
-    if notif_cfg.get("macos", {}).get("enabled", True):
+    if sys.platform == "darwin" and notif_cfg.get("macos", {}).get("enabled", True):
         send_macos_notification(title=title, subtitle=subtitle, message=message)
     ntfy_body = f"{subtitle}\n{message}" if subtitle else message
     send_ntfy_notification(
@@ -377,6 +383,27 @@ def check_product_watch(
         "notified": should_notify and not dry_run,
         "url": final_url,
     }
+
+
+def extract_min_chf_price(text: str, min_plausible: float = 30.0) -> Optional[float]:
+    """Extract the lowest plausible CHF price from a Swiss deal title/description.
+
+    Used as a fallback guard on Linux / GitHub Actions when Apple's on-device
+    `fm` CLI is unavailable. Returns None if no clear CHF price is stated so
+    promo-code / percentage-off deals are never dropped.
+    """
+    patterns = (
+        r"(?:CHF|Fr\.?)\s*(\d{1,2}['’]?\d{2,3}(?:[.,]\d{1,2})?)",
+        r"(\d{1,2}['’]?\d{2,3}(?:[.,]\d{1,2})?)\s*(?:CHF|Fr\.?\b|Franken)",
+        r"(\d{1,2}['’]?\d{2,3})\.(?:-|–|—)",
+    )
+    prices: List[float] = []
+    for pat in patterns:
+        for m in re.finditer(pat, text, re.I):
+            val = parse_chf_number(m.group(1))
+            if val is not None and val >= min_plausible:
+                prices.append(val)
+    return min(prices) if prices else None
 
 
 def matches_rss_rule(text: str, rule: Dict[str, Any]) -> bool:
@@ -501,6 +528,9 @@ def check_rss_feeds(
             desc = html.unescape(re.sub(r"<[^>]+>", " ", item.findtext("description") or ""))
             combined = f"{title} {desc}"
 
+            if "abgelaufen" in title.lower():
+                continue
+
             if not is_recent_rss_item(pub_date, max_age_hours=max_age_hours):
                 continue
 
@@ -519,6 +549,19 @@ def check_rss_feeds(
                             or (fm_result.get("price_chf", 0) > 0 and not fm_result.get("meets_target", True))
                         ):
                             logging.info("[rss:%s] Filtered out by on-device fm: %s", fid, title)
+                            if not dry_run:
+                                seen_links[link] = now_iso
+                            break
+                    elif rule.get("max_price_chf") is not None:
+                        max_price = float(rule["max_price_chf"])
+                        detected_price = extract_min_chf_price(
+                            combined, min_plausible=max(30.0, max_price * 0.25)
+                        )
+                        if detected_price is not None and detected_price > max_price:
+                            logging.info(
+                                "[rss:%s] Filtered out by max_price_chf (%.2f > %.2f): %s",
+                                fid, detected_price, max_price, title,
+                            )
                             if not dry_run:
                                 seen_links[link] = now_iso
                             break
